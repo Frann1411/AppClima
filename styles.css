@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Efecto de nubes flotantes */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+    animation: clouds 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes clouds {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.dark-mode {
+    --primary-color: #64b5f6;
+    --secondary-color: #424242;
+    --text-color: #fff;
+    --card-bg: rgba(33, 33, 33, 0.9);
+    background: linear-gradient(-45deg, #2c3e50, #3498db, #2980b9, #1a5276);
+    background-size: 400% 400%;
+}
+
+/* Efecto de partículas flotantes */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 20s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(100vw);
+        opacity: 0;
+    }
+}
+
+.weather-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+}
+
+.forecast-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.forecast-card:hover {
+    transform: scale(1.02);
+}
+
+.search-box {
+    background: var(--card-bg);
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.social-links {
+    position: relative;
+    z-index: 1;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 24px;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
