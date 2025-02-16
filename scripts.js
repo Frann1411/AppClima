@@ -1,5 +1,5 @@
 // configuración de la api
-const API_KEY = '';
+const API_KEY = 'c9092ea0057d487298533849251602 ';
 const API_BASE_URL = 'https://api.weatherapi.com/v1';
 let currentUnit = 'C';
 let currentTemp = 0;
